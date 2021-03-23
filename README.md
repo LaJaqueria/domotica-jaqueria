@@ -9,3 +9,4 @@ Primero instale una maquina virtual ubuntu 20.04 con todas sus dependencias, ins
 
 **2. Seleccion de licencia**
 
+hj
