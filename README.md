@@ -32,3 +32,8 @@ Para ello, recurri a BotFather haciendo lo siguiente:
 - Edite la descripcion del bot
 
 - Edite la foto de perfil del bot
+
+**Crear LDAP**
+
+En la maquina donde esta la imagen Docker de Home Assistant, instale la imagen de LDAP tambien
+
