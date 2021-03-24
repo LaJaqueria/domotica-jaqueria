@@ -53,6 +53,6 @@ Para ello, recurri a BotFather haciendo lo siguiente:
     3. Indicar el dominio de la Jaqueria
     4. Indicar el usuario administrador
     5. Indicar el puerto que usara phpldapadmin
-    6. Indicar que depende de openldap
+    6. Indicar que depende del protocolo openldap
 
 
