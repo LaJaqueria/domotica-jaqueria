@@ -40,13 +40,19 @@ Para ello, recurri a BotFather haciendo lo siguiente:
 
     1. Indicar los 2 puertos que usara LDAP (1389,1636) e indicar el puerto que usara HomeAssistant (8123)
     2. Indicar parametros para el usuario administrador para LDAP
-    3. Asignar el directorio donde se almacenara LDAP y HomeAssistant
+    3. Asignar el dominio de la Jaqueria 
+    4. Asignar el directorio donde se almacenara LDAP y HomeAssistant
 
 **Crear imagen de Docker con phpldapadmin**
 
 - Instale la imagen docker en Ubuntu
 - Añadi la configuracion de phpldapadmin al docker-compose con detalles importantes como:
 
-    1. 
+    1. Host de phpldapadmin, que sera openldap
+    2. Deshabilitar https
+    3. Indicar el dominio de la Jaqueria
+    4. Indicar el usuario administrador
+    5. Indicar el puerto que usara phpldapadmin
+    6. Indicar que depende de openldap
 
 
