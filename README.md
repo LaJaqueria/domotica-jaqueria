@@ -36,4 +36,4 @@ Para ello, recurri a BotFather haciendo lo siguiente:
 **Crear LDAP**
 
 - Instale la imagen docker LDAP en Ubuntu
-- Cree un docker-compose con LDAP y Home Assistant
+- Cree un docker-compose con LDAP y Home Assistantgh
