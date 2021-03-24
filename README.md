@@ -36,10 +36,17 @@ Para ello, recurri a BotFather haciendo lo siguiente:
 **Crear LDAP**
 
 - Instale la imagen docker LDAP en Ubuntu
-- Cree un docker-compose con LDAP y Home Assistant
+- Cree un docker-compose con LDAP y Home Assistant. En cuanto a sus cambios mas importantes son los siguientes:
+
+    1. Indicar los 2 puertos que usara LDAP (1389,1636) e indicar el puerto que usara HomeAssistant (8123)
+    2. Indicar parametros para el usuario administrador para LDAP
+    3. Asignar el directorio donde se almacenara LDAP y HomeAssistant
 
 **Crear imagen de Docker con phpldapadmin**
 
 - Instale la imagen docker en Ubuntu
-- Añadi la configuracion de phpldapadmin al docker-compose
+- Añadi la configuracion de phpldapadmin al docker-compose con detalles importantes como:
+
+    1. 
+
 
