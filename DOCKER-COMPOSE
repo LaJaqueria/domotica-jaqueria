@@ -18,17 +18,7 @@ services:
       - my-network
     volumes:
       - 'openldap_data:/bitnami/openldap'
-  myapp:
-    image: 'YOUR_APPLICATION_IMAGE'
-    networks:
-      - my-network
-volumes:
-  openldap_data:
-    driver: local
-
-    version: '3'
-services:
-  homeassistant:
+ homeassistant:
     container_name: homeassistant
     image: homeassistant/home-assistant:stable
     volumes:
@@ -36,3 +26,6 @@ services:
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
     network_mode: host
+volumes:
+  openldap_data:
+    driver: local
