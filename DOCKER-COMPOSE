@@ -1,4 +1,4 @@
-version: '2'
+    version: '2'
 
 networks:
   my-network:
@@ -17,12 +17,14 @@ services:
     networks:
       - my-network
     volumes:
-      - 'openldap_data:/bitnami/openldap'
+      - '/home/administrador/ldap:/bitnami/openldap'
  homeassistant:
     container_name: homeassistant
     image: homeassistant/home-assistant:stable
+     ports:
+      - '8123:8123'
     volumes:
-      - /PATH_TO_YOUR_CONFIG:/config
+      - /PATH_TO_YOUR_CONFIG:/home/administrador/homeassistant
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
     network_mode: host
