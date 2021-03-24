@@ -1,33 +1,59 @@
-    version: '2'
 
-networks:
-  my-network:
+version: '2'
+    
+networks: 
+  my-network: 
     driver: bridge
-services:
-  openldap:
+services: 
+  openldap: 
     image: bitnami/openldap:2
-    ports:
+    ports: 
       - '1389:1389'
       - '1636:1636'
-    environment:
+    environment: 
       - LDAP_ADMIN_USERNAME=admin
       - LDAP_ADMIN_PASSWORD=adminpassword
       - LDAP_USERS=user01,user02
       - LDAP_PASSWORDS=password1,password2
-    networks:
+      - LDAP_DOMAIN=lajaqueria.org
+      - "LDAP_BASE_DN=dc=lajaqueria,dc=org"
+    networks: 
       - my-network
-    volumes:
+    volumes: 
       - '/home/administrador/ldap:/bitnami/openldap'
- homeassistant:
+      
+  homeassistant: 
     container_name: homeassistant
     image: homeassistant/home-assistant:stable
-     ports:
+    ports: 
       - '8123:8123'
-    volumes:
+    volumes: 
       - /PATH_TO_YOUR_CONFIG:/home/administrador/homeassistant
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
     network_mode: host
-volumes:
-  openldap_data:
+volumes: 
+  openldap_data: 
     driver: local
+    
+  phpldapadmin: 
+    container_name: phpldapadmin
+    image: rschaeuble/phpldapadmin
+    environment: 
+      PHPLDAPADMIN_LDAP_HOSTS: "openldap"
+      PHPLDAPADMIN_HTTPS: "false"
+      #LDAP_URL ldap://my-ldap-server.example.com
+      LDAP_BASE: dc=lajaqueria,dc=org
+      LDAP_ADMIN: cn=admin,dc=lajaqueria,dc=org
+      ENV LDAP_CERTS: /data/ldap-server-certificate.crt
+    ports: 
+      - "80:80"
+    depends_on: 
+      - openldap
+    networks: 
+      - my-network
+
+
+      ERROR: The Compose file './docker-compose.yml' is invalid because:
+volumes.phpldapadmin value Additional properties are not allowed ('depends_on', 'environment', 'ports', 'image', 'networks', 'container_name' were unexpected)
+      
