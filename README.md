@@ -37,3 +37,9 @@ Para ello, recurri a BotFather haciendo lo siguiente:
 
 - Instale la imagen docker LDAP en Ubuntu
 - Cree un docker-compose con LDAP y Home Assistant
+
+**Crear imagen de Docker con phpldapadmin**
+
+- Instale la imagen docker en Ubuntu
+- Añadi la configuracion de phpldapadmin al docker-compose
+
