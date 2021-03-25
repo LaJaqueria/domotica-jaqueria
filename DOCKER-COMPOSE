@@ -1,9 +1,11 @@
-  
 version: '2'
     
 networks: 
   my-network: 
     driver: bridge
+volumes:
+  openldap_data:
+    driver: local
 services: 
   openldap: 
     image: bitnami/openldap:2
@@ -20,7 +22,7 @@ services:
     networks: 
       - my-network
     volumes: 
-      - '/home/administrador/ldap:/bitnami/openldap'
+      - 'openldap_data:/bitnami/openldap'
       
   homeassistant: 
     container_name: homeassistant
@@ -38,7 +40,7 @@ services:
     environment: 
       PHPLDAPADMIN_LDAP_HOSTS: "openldap"
       PHPLDAPADMIN_HTTPS: "false"
-      #LDAP_URL ldap://openldap
+      LDAP_URL: ldap://openldap
       LDAP_BASE: dc=lajaqueria,dc=org
       LDAP_ADMIN: cn=admin,dc=lajaqueria,dc=org
       ENV LDAP_CERTS: /data/ldap-server-certificate.crt
