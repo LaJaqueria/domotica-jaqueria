@@ -1,4 +1,4 @@
-
+  
 version: '2'
     
 networks: 
@@ -31,29 +31,20 @@ services:
       - /PATH_TO_YOUR_CONFIG:/home/administrador/homeassistant
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
-    network_mode: host
-volumes: 
-  openldap_data: 
-    driver: local
-    
+    network_mode: host 
   phpldapadmin: 
     container_name: phpldapadmin
     image: rschaeuble/phpldapadmin
     environment: 
       PHPLDAPADMIN_LDAP_HOSTS: "openldap"
       PHPLDAPADMIN_HTTPS: "false"
-      #LDAP_URL ldap://my-ldap-server.example.com
+      #LDAP_URL ldap://openldap
       LDAP_BASE: dc=lajaqueria,dc=org
       LDAP_ADMIN: cn=admin,dc=lajaqueria,dc=org
       ENV LDAP_CERTS: /data/ldap-server-certificate.crt
     ports: 
-      - "80:80"
+     - "80:80"
     depends_on: 
       - openldap
     networks: 
       - my-network
-
-
-      ERROR: The Compose file './docker-compose.yml' is invalid because:
-volumes.phpldapadmin value Additional properties are not allowed ('depends_on', 'environment', 'ports', 'image', 'networks', 'container_name' were unexpected)
-      
