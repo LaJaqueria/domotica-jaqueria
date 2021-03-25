@@ -36,12 +36,12 @@ services:
     container_name: phpldapadmin
     image: rschaeuble/phpldapadmin
     environment: 
-      PHPLDAPADMIN_LDAP_HOSTS: "openldap"
-      PHPLDAPADMIN_HTTPS: "false"
+      - PHPLDAPADMIN_LDAP_HOSTS: "openldap"
+      - PHPLDAPADMIN_HTTPS: "false"
       #LDAP_URL ldap://openldap
-      LDAP_BASE: dc=lajaqueria,dc=org
-      LDAP_ADMIN: cn=admin,dc=lajaqueria,dc=org
-     ENV LDAP_CERTS: /data/ldap-server-certificate.crt
+      - LDAP_BASE: dc=lajaqueria,dc=org
+      - LDAP_ADMIN: cn=admin,dc=lajaqueria,dc=org
+      - ENV LDAP_CERTS: /data/ldap-server-certificate.crt
     ports: 
      - "80:80"
     depends_on: 
