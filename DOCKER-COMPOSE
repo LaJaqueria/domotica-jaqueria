@@ -4,6 +4,9 @@ version: '2'
 networks: 
   my-network: 
     driver: bridge
+volumes:
+  openldap_data:
+    driver: local
 services: 
   openldap: 
     image: bitnami/openldap:2
@@ -20,7 +23,7 @@ services:
     networks: 
       - my-network
     volumes: 
-      - '/home/administrador/ldap:/bitnami/openldap'
+      - 'openldap_data:/bitnami/openldap'
       
   homeassistant: 
     container_name: homeassistant
