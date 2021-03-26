@@ -8,16 +8,16 @@ volumes:
 services: 
   openldap: 
     container_name: openldap
-    image: bitnami/openldap:2
+    image: bitnami/openldap:2.4.58
     ports: 
       - '1389:1389'
       - '1636:1636'
     environment: 
-      LDAP_ADMIN_USERNAME: admin
-      LDAP_ADMIN_PASSWORD: adminpassword
-      LDAP_USERS: user01,user02
-      LDAP_PASSWORDS: password1,password2
-      LDAP_ROOT: dc=lajaqueria,dc=org
+      - LDAP_ADMIN_USERNAME=admin
+      - LDAP_ADMIN_PASSWORD=adminpassword
+      - LDAP_USERS=user01,user02
+      - LDAP_PASSWORDS=password1,password2
+      - LDAP_ROOT="dc=lajaqueria,dc=org"
     networks: 
       - my-network
     volumes: 
@@ -38,11 +38,11 @@ services:
     container_name: phpldapadmin
     image: rschaeuble/phpldapadmin
     environment: 
-      PHPLDAPADMIN_LDAP_HOSTS: "openldap"
-      PHPLDAPADMIN_HTTPS: "false"
-      LDAP_URL: ldap://openldap:1389
-      LDAP_BASE: dc=lajaqueria,dc=org
-      LDAP_ADMIN: cn=admin,dc=lajaqueria,dc=org
+      - PHPLDAPADMIN_LDAP_HOSTS="openldap"
+      - PHPLDAPADMIN_HTTPS="false"
+      - LDAP_URL=ldap://openldap:1389
+      - LDAP_BASE=dc=lajaqueria,dc=org
+      - LDAP_ADMIN=cn=admin,dc=lajaqueria,dc=org
       #ENV LDAP_CERTS: /data/ldap-server-certificate.crt
     ports: 
       - "80:80"
