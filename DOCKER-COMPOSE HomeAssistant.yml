@@ -1,11 +1,16 @@
-homeassistant: 
-    container_name: homeassistant
-    image: homeassistant/home-assistant:stable
-    ports: 
-      - '8123:8123'
-    volumes: 
-      - /home/administrador/config:/home/administrador/homeassistant
-      - /etc/localtime:/etc/localtime:ro
-    restart: unless-stopped
-    networks:
-      - my-network 
+version: '3'
+networks: 
+  my-network: 
+    driver: bridge
+services:
+  homeassistant: 
+      container_name: homeassistant
+      image: homeassistant/home-assistant:stable
+      ports: 
+        - '8123:8123'
+      volumes: 
+        - /home/administrador/config:/home/administrador/homeassistant
+        - /etc/localtime:/etc/localtime:ro
+      restart: unless-stopped
+      networks:
+        - my-network 
