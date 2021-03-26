@@ -1,5 +1,4 @@
-version: '2'
-    
+version: '3'
 networks: 
   my-network: 
     driver: bridge
@@ -8,17 +7,17 @@ volumes:
     driver: local
 services: 
   openldap: 
+    container_name: openldap
     image: bitnami/openldap:2
     ports: 
       - '1389:1389'
       - '1636:1636'
     environment: 
-      - LDAP_ADMIN_USERNAME=admin
-      - LDAP_ADMIN_PASSWORD=adminpassword
-      - LDAP_USERS=user01,user02
-      - LDAP_PASSWORDS=password1,password2
-      - LDAP_DOMAIN=lajaqueria.org
-      - "LDAP_BASE_DN=dc=lajaqueria,dc=org"
+      LDAP_ADMIN_USERNAME: admin
+      LDAP_ADMIN_PASSWORD: adminpassword
+      LDAP_USERS: user01,user02
+      LDAP_PASSWORDS: password1,password2
+      LDAP_ROOT: dc=lajaqueria,dc=org
     networks: 
       - my-network
     volumes: 
@@ -30,23 +29,27 @@ services:
     ports: 
       - '8123:8123'
     volumes: 
-      - /PATH_TO_YOUR_CONFIG:/home/administrador/homeassistant
+      - E:\Escritorio\d\config:/home/administrador/homeassistant
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
-    network_mode: host 
+    networks:
+      - my-network 
   phpldapadmin: 
     container_name: phpldapadmin
     image: rschaeuble/phpldapadmin
     environment: 
       PHPLDAPADMIN_LDAP_HOSTS: "openldap"
       PHPLDAPADMIN_HTTPS: "false"
-      LDAP_URL: ldap://openldap
+      LDAP_URL: ldap://openldap:1389
       LDAP_BASE: dc=lajaqueria,dc=org
       LDAP_ADMIN: cn=admin,dc=lajaqueria,dc=org
-      ENV LDAP_CERTS: /data/ldap-server-certificate.crt
+      #ENV LDAP_CERTS: /data/ldap-server-certificate.crt
     ports: 
-     - "80:80"
+      - "80:80"
+    links:
+      - "openldap"
     depends_on: 
       - openldap
     networks: 
       - my-network
+      
