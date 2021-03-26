@@ -1,0 +1,31 @@
+esphome:
+  name: temperatura
+  platform: ESP32
+  board: esp32-devkitlipo
+
+wifi:
+  ssid: "LAJAQUERIA"
+  password: ""
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Temperatura Fallback Hotspot"
+    password: "5Yz90NApRnc1"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+sensor:
+  - platform: dht
+    pin: D2
+    temperature:
+      name: "Living Room Temperature"
+    humidity:
+      name: "Living Room Humidity"
+    update_interval: 60s
