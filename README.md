@@ -55,4 +55,13 @@ Para ello, recurri a BotFather haciendo lo siguiente:
     5. Indicar el puerto que usara phpldapadmin
     6. Indicar que depende del protocolo openldap
 
+**Crear sensor de humedad y temperatura
+
+Mediante ESPHOME, configurar un ESP32(medidor de temperatura) haciendo lo siguiente:
+
+1. Instalar Python para usar "pip" e instalar ESPHOME(cmd)
+2. Configurar parametros iniciales como nombre del dispositivo, microcontrolador usado, modelo de placa, SSID de Wifi, y la contraseña de esta
+3. Crear un archivo .yml para incorporar la configuracion que llevara el medidor de temperatura
+
+**Integrar LDAP como proveedor de identidades de Home Assistant
 
