@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 networks: 
   my-network: 
     driver: bridge
@@ -7,33 +7,27 @@ volumes:
     driver: local
 services: 
   openldap: 
+    image: osixia/openldap:latest
     container_name: openldap
-    image: bitnami/openldap:2.4.58
-    ports: 
-      - '1389:1389'
-      - '1636:1636'
     environment: 
-      - LDAP_ADMIN_USERNAME=admin
-      - LDAP_ADMIN_PASSWORD=adminpassword
-      - LDAP_USERS=user01,user02
-      - LDAP_PASSWORDS=password1,password2
-      - LDAP_ROOT=dc=lajaqueria,dc=org
+      LDAP_ORGANISATION: "LaJaqueria.org"
+      LDAP_DOMAIN: "lajaqueria.org"
+      LDAP_ADMIN_PASSWORD: "admin"
+      LDAP_CONFIG_PASSWORD: "config"
+    tty: true
+    stdin_open : true
     networks: 
       - my-network
     volumes: 
-      - 'openldap_data:/bitnami/openldap'
-      
-  homeassistant: 
-    container_name: homeassistant
-    image: homeassistant/home-assistant:stable
-    ports: 
-      - '8123:8123'
-    volumes: 
-      - /home/administrador/config:/home/administrador/homeassistant
-      - /etc/localtime:/etc/localtime:ro
-    restart: unless-stopped
-    networks:
-      - my-network 
+      - ./ldap_dbase:/var/lib/ldap
+      - ./ldap_config:/etc/lib/ldap
+      - ./ldap_certs:/container/service/slapd/assets/certs/
+    ports:
+      - "1389:1389"
+      - "1636:1636"
+    domainname: "lajaqueria.org"
+    hostname: "lajaqueria.org"
+  
   phpldapadmin: 
     container_name: phpldapadmin
     image: rschaeuble/phpldapadmin
@@ -52,4 +46,16 @@ services:
       - openldap
     networks: 
       - my-network
+      
+  homeassistant: 
+      container_name: homeassistant
+      image: homeassistant/home-assistant:stable
+      ports: 
+        - '8123:8123'
+      volumes: 
+        - /home/administrador/config:/home/administrador/homeassistant
+        - /etc/localtime:/etc/localtime:ro
+      restart: unless-stopped
+      networks:
+        - my-network
       
