@@ -29,19 +29,17 @@ services:
     hostname: "lajaqueria.org"
   
   phpldapadmin: 
+    image: osixia/phpldapadmin:latest
     container_name: phpldapadmin
-    image: rschaeuble/phpldapadmin
     environment: 
-      - PHPLDAPADMIN_LDAP_HOSTS="openldap"
-      - PHPLDAPADMIN_HTTPS="false"
-      - LDAP_URL=ldap://openldap:1389
-      - LDAP_BASE=dc=lajaqueria,dc=org
-      - LDAP_ADMIN=cn=admin,dc=lajaqueria,dc=org
+      PHPLDAPADMIN_LDAP_HOSTS: "openldap"
+      PHPLDAPADMIN_HTTPS: "false"
+      #LDAP_URL=ldap://openldap:1389
+      #LDAP_BASE=dc=lajaqueria,dc=org
+      #LDAP_ADMIN=cn=admin,dc=lajaqueria,dc=org
       #ENV LDAP_CERTS: /data/ldap-server-certificate.crt
     ports: 
       - "80:80"
-    links:
-      - "openldap"
     depends_on: 
       - openldap
     networks: 
@@ -58,4 +56,3 @@ services:
       restart: unless-stopped
       networks:
         - my-network
-      
