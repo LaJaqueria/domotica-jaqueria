@@ -4,13 +4,13 @@ networks:
     driver: bridge
 services:
   homeassistant: 
-    container_name: homeassistant
-    image: homeassistant/home-assistant:stable
-    ports: 
-      - '8123:8123'
-    volumes: 
-      - /home/usuario/config:/config
-      - /etc/localtime:/etc/localtime:ro
-    restart: unless-stopped
-    networks:
-      - my-network
+      container_name: homeassistant
+      image: homeassistant/home-assistant:stable
+      ports: 
+        - '8123:8123'
+      volumes: 
+        - /home/usuario/config:/config
+        - /etc/localtime:/etc/localtime:ro
+      restart: unless-stopped
+      networks:
+        - my-network 
