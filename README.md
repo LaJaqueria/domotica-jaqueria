@@ -79,15 +79,18 @@ En este caso, se hara lo siguiente:
 - Crear el grupo de administradores, con la informacion correspondiente y asignando los permisos adecuados
 - Crear el grupo de socios, con la informacion de estos y con los permisos que les correspondan
 
+**Configurar Bot de Telegram en Home Assistant**
 
+Para ello, habra que configurar el archivo "configuration.yaml" situado en la ruta que se definio en "docker-compose", en este caso "/home/administrador/config"
+
+Los pasos de configuracion en "configuration.yaml" son los siguientes:
+
+- Indicar el token del bot de telegram que usara HomeAssistant
+- Indicar los "chatid" de mi usuario, y el grupo de la Jaqueria
+- Indicar los "chatid" anteriores en otro apartado para habilitar las notificaciones
 
     
 
-
-
-
-
-    
 
 **Integrar LDAP como proveedor de identidades de Home Assistant**
 
