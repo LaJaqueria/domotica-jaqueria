@@ -9,7 +9,7 @@ services:
       ports: 
         - '8123:8123'
       volumes: 
-        - /home/administrador/config:/home/administrador/homeassistant
+        - /home/usuario/config:/config
         - /etc/localtime:/etc/localtime:ro
       restart: unless-stopped
       networks:
