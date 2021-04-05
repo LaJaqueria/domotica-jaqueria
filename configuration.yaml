@@ -1,0 +1,34 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+telegram_bot:
+  - platform: polling
+    api_key: 1743398602:AAHuq9AZxmiWjL1blmRQzMSe6r88Oib3sok
+    allowed_chat_ids:
+      - 367455833
+      - -301214763
+notify:
+  - platform: telegram
+    name: NotificadorPablo
+    chat_id: 367455833
+
+  - platform: telegram
+    name: NotificadorLaJaqueria
+    chat_id: -301214763
+
+action: 
+  service: NotificadorLaJaqueria
+  data:
+    title: "*Prueba*"
+    message: "Buenos dias"
+    data: 
+      inline_keyboard:
