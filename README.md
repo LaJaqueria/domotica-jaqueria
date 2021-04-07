@@ -89,5 +89,13 @@ Los pasos de configuracion en "configuration.yaml" son los siguientes:
 - Indicar los "chatid" de mi usuario, y el grupo de la Jaqueria
 - Indicar los "chatid" anteriores en otro apartado para habilitar las notificaciones
 
+**Añadir imagen docker para Mosquitto**
+
+- Instale la imagen docker Eclipse Mosquitto
+- En el docker-compose, lo añadi con informacion como la siguiente:
+
+    1. 
+
+
 **Integrar LDAP como proveedor de identidades de Home Assistant**
 
