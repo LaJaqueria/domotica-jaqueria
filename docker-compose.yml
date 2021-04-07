@@ -50,4 +50,25 @@ services:
       - openldap
     networks: 
       - my-network
+  mosquitto: 
+    image: eclipse-mosquitto:3.1.1
+    container_name: mosquitto
+    ports: 
+      - "1883:1883"
+      - "9001:9001"
+    volumes:  
+      - /home/administrador/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      #- mosquitto-data:/mosquitto/data 
+      #- mosquitto-logs:/mosquitto/logs
+      #- mosquitto-conf:/mosquitto/config
+      # no se si estas son correctas
+    networks:
+      - my-network
       
+      #Da el siguiente error:
+ #Creating mosquitto ... error
+
+#ERROR: for mosquitto  Cannot start service mosquitto: OCI runtime create failed: container_linux.go:367: starting container process caused: process_linux.go:495: container init caused: rootfs_linux.go:60: mounting "/home/administrador/mosquitto/mosquitto.conf" to rootfs at "/var/lib/docker/overlay2/c8698f29823c31fec6f308d077b9cf4bbec589e5e53693e5ddd928389c29677e/merged/mosquitto/config/mosquitto.conf" caused: not a directory: unknown: Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified host path exists and is the expected type
+
+#ERROR: for mosquitto  Cannot start service mosquitto: OCI runtime create failed: container_linux.go:367: starting container process caused: process_linux.go:495: container init caused: rootfs_linux.go:60: mounting "/home/administrador/mosquitto/mosquitto.conf" to rootfs at "/var/lib/docker/overlay2/c8698f29823c31fec6f308d077b9cf4bbec589e5e53693e5ddd928389c29677e/merged/mosquitto/config/mosquitto.conf" caused: not a directory: unknown: Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified host path exists and is the expected type
+#ERROR: Encountered errors while bringing up the project.
