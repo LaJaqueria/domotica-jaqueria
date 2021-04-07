@@ -12,15 +12,14 @@ scene: !include scenes.yaml
 
 telegram_bot:
   - platform: polling
-    api_key: 1743398602:AAHuq9AZxmiWjL1blmRQzMSe6r88Oib3sok
+    api_key: <tokenID>
     allowed_chat_ids:
-      - -301214763
-      - 367455833
+      - <chatId>
 notify:
   - platform: telegram
     name: NotificadorPablo
-    chat_id: 367455833
+    chat_id: <chatID>
 
   - platform: telegram
     name: NotificadorLaJaqueria
-    chat_id: -301214763
+    chat_id: <chatID>
