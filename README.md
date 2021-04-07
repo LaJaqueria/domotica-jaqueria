@@ -94,7 +94,9 @@ Los pasos de configuracion en "configuration.yaml" son los siguientes:
 - Instale la imagen docker Eclipse Mosquitto
 - En el docker-compose, lo añadi con informacion como la siguiente:
 
-    1. 
+    1. Indicar los 2 puertos que utilizara mosquitto
+    2. Indicar el directorio donde se almacenara mosquitto
+    
 
 
 **Integrar LDAP como proveedor de identidades de Home Assistant**
