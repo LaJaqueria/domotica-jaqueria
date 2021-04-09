@@ -97,6 +97,10 @@ Los pasos de configuracion en "configuration.yaml" son los siguientes:
     1. Indicar los 2 puertos que utilizara mosquitto
     2. Indicar el directorio donde se almacenara mosquitto
     
+**Configurar broker MQTT para HomeAssistant**
+
+Para ello iremos al "configuration.yaml" situado en la ruta "/home/admministrador/config" indicando lo siguiente:
+- 
 
 
 **Integrar LDAP como proveedor de identidades de Home Assistant**

@@ -50,4 +50,19 @@ services:
       - openldap
     networks: 
       - my-network
-      
+
+  mosquitto: 
+    image: eclipse-mosquitto:1.6
+    container_name: mosquitto
+    ports: 
+      - "1883:1883"
+      - "9001:9001"
+    volumes:  
+      - /home/usuario/mosquitto:/mosquitto/config/
+      #- mosquitto-data:/mosquitto/data 
+      #- mosquitto-logs:/mosquitto/logs
+      #- mosquitto-conf:/mosquitto/config
+      # no se si estas son correctas
+    networks:
+      - my-network
+ 
