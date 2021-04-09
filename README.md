@@ -100,6 +100,7 @@ Los pasos de configuracion en "configuration.yaml" son los siguientes:
 **Configurar broker MQTT para HomeAssistant**
 
 Para ello iremos al "configuration.yaml" situado en la ruta "/home/admministrador/config" indicando lo siguiente:
+
 - 
 
 
