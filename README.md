@@ -106,6 +106,14 @@ Para ello iremos al "configuration.yaml" situado en la ruta "/home/admministrado
 - El broker, en este caso mosquitto
 - El puerto por el que funcionara(9001)
 
+Una vez hecho esto habra que hacer lo siguiente:
+
+- Entrar en el docker de mosquitto, y crear un archivo llamado "passwd.txt" con el usuario jaqueria
+- En la ruta donde tengamos mosquitto(mconfig), se añadira el archivo mosquitto.conf con las siguientes lineas:
+
+    1. "allow_anonymous false" para que no se permita entrar a nadie anonimo
+    2. "password_file /mosquitto/config/passwd.txt" para indicar el archivo que contendra el usuario jaqueria creado anteriormente
+
 
 **Integrar LDAP como proveedor de identidades de Home Assistant**
 
