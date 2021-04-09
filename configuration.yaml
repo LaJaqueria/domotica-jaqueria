@@ -23,4 +23,10 @@ notify:
   - platform: telegram
     name: NotificadorLaJaqueria
     chat_id: <chatID>
-
+    
+mqtt:
+  certificate: ""
+  broker: ""
+  port: 9001
+  username: ""
+  password: ""
