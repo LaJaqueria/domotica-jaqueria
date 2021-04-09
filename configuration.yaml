@@ -25,8 +25,7 @@ notify:
     chat_id: <chatID>
     
 mqtt:
-  certificate: ""
-  broker: ""
-  port: 9001
-  username: ""
-  password: ""
+  broker: "mosquitto"
+  port: 1883
+  username: "jaqueria"
+  password: 2452
