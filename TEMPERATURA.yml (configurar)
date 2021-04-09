@@ -18,14 +18,14 @@ captive_portal:
 logger:
 
 # Enable Home Assistant API
-api:
+api:jaqueriatemp
 
-ota:
+ota:jaqueriatemp
 sensor:
   - platform: dht
     pin: D2
     temperature:
-      name: "Living Room Temperature"
+      name: "Medidor de temperatura de la sede"
     humidity:
-      name: "Living Room Humidity"
-    update_interval: 60s
+      name: "Medidor de humedad de la sede"
+    update_interval: 300s
