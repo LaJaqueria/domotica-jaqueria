@@ -4,13 +4,13 @@ esphome:
   board: esp32-devkitlipo
 
 wifi:
-  ssid: "LAJAQUERIA"
-  password: ""
+  ssid: "MiFibra-273F"
+  password: "hmuuuEN9"
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "Temperatura Fallback Hotspot"
-    password: "5Yz90NApRnc1"
+    password: "hmuuuEN9"
 
 captive_portal:
 
@@ -23,7 +23,7 @@ api:jaqueriatemp
 ota:jaqueriatemp
 sensor:
   - platform: dht
-    pin: D2
+    pin: D13
     temperature:
       name: "Medidor de temperatura de la sede"
     humidity:
