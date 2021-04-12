@@ -69,7 +69,12 @@ Para ello, recurri a BotFather haciendo lo siguiente:
 
 3. En el archivo .yml creado, incorporar la configuracion que llevara el medidor de temperatura que sera la siguiente:
 
-    - 
+    - SSID del Wifi
+    - Contraseña del Wifi
+    - Contraseña de la API de HomeAssistant
+    - PIN de la placa donde se conecta el sensor
+    - Nombre que tendra el sensor de temperatura y humedad
+    - Intervalo de segundos donde la informacion del sensor se ira actualizando
 
 **Configurar grupos y usuarios LDAP**
 
