@@ -23,7 +23,7 @@ api:
 ota:
 sensor:
   - platform: dht
-    pin: D2
+    pin: D13
     temperature:
       name: "Living Room Temperature"
     humidity:
