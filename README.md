@@ -76,6 +76,10 @@ Para ello, recurri a BotFather haciendo lo siguiente:
     - Nombre que tendra el sensor de temperatura y humedad
     - Intervalo de segundos donde la informacion del sensor se ira actualizando
 
+4. Una vez configurado, ejecutamos el siguiente comando para que funcione el sensor
+
+    ```
+
 **Configurar grupos y usuarios LDAP**
 
 En este caso, se hara lo siguiente:
