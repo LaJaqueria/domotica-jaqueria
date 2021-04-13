@@ -1,3 +1,5 @@
 mconfig
 hconfig
 .env
+.esphome/
+temperatura/

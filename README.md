@@ -80,6 +80,8 @@ Para ello, recurri a BotFather haciendo lo siguiente:
 
     ```python -m esphome temperatura.yml run```
 
+5. 
+
 
 **Configurar grupos y usuarios LDAP**
 
