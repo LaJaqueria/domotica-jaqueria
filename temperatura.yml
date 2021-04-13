@@ -24,7 +24,7 @@ ota:
   password: "jaqueriatemp"
 sensor:
   - platform: dht
-    pin: D13
+    pin: GPIO13
     temperature:
       name: "Medidor de temperatura de la sede"
     humidity:
