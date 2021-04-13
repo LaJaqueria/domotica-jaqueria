@@ -78,7 +78,8 @@ Para ello, recurri a BotFather haciendo lo siguiente:
 
 4. Una vez configurado, ejecutamos el siguiente comando para que funcione el sensor
 
-    ```
+    ```python -m esphome temperatura.yml run```
+
 
 **Configurar grupos y usuarios LDAP**
 
