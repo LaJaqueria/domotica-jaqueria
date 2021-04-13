@@ -73,14 +73,17 @@ Para ello, recurri a BotFather haciendo lo siguiente:
     - Contraseña del Wifi
     - Contraseña de la API de HomeAssistant
     - PIN de la placa donde se conecta el sensor
-    - Nombre que tendra el sensor de temperatura y humedad
+    - Nombre que tendra el sensor de temperatura y      humedad
     - Intervalo de segundos donde la informacion del sensor se ira actualizando
 
 4. Una vez configurado, ejecutamos el siguiente comando para que funcione el sensor
 
     ```python -m esphome temperatura.yml run```
 
-5. 
+5. Lo siguiente que hara sera pedirnos el puerto donde esta conectado el sensor, asi que ponemos el que corresponda a "COM3"
+6. Por ultimo nos pedira la contraseña que configuramos en "temperatura.yml"
+
+        Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME" y saldra el dispositivo integrado con sus 2 entidades, en este caso temperatura y humedad.
 
 
 **Configurar grupos y usuarios LDAP**
