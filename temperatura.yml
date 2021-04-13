@@ -1,8 +1,7 @@
-board: nodemcu -32s
 esphome:
   name: temperatura
   platform: ESP32
-  board: esp32-devkitlipo
+  board: nodemcu-32s
 
 wifi:
   ssid: "MiFibra-273F"
