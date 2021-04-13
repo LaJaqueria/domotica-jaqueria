@@ -18,9 +18,10 @@ captive_portal:
 logger:
 
 # Enable Home Assistant API
-api: "jaqueriatemp"
-
-ota: "jaqueriatemp"
+api:
+  password: "jaqueriatemp"
+ota: 
+  password: "jaqueriatemp"
 sensor:
   - platform: dht
     pin: D13
