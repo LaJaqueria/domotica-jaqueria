@@ -93,7 +93,17 @@ En este caso, se hara lo siguiente:
 
 - Crear el grupo de administradores, con la informacion correspondiente y asignando los permisos adecuados
 - Crear el grupo de socios, con la informacion de estos y con los permisos que les correspondan
-- Todo esto se hace mediante el navegador web con phpldapadmin
+- Todo esto se hace mediante el navegador web con phpldapadmin de la siguiente manera:
+
+    1. Creamos la unidad organizativa administradores dando a jaqueria>create a child entry>organisational unit> y con el nombre "Administradores"
+
+    2. Creamos la unidad organizativa sociosjaqueria dando a jaqueria>create a child entry>organisational unit> y con el nombre de "Socios Jaqueria"
+
+    3. Creamos los usuarios Remedios, Pedro y Victor que seran los administradores dando a Administradores>create a child entry>default>InetOrgPerson. Una vez ahi, se selecciona el atributo en este caso "cn" y para cada uno de los 3 se rellanaran las casillas "cn", "sn" con el nombre, "password" con la contraseña y "username" con el nombre de usuario para entrar
+
+    4. Al ser socios tambien estos 3 usuarios, se añadiran dando a la unidad organizativa Administradores>copy or move this entry>destination dn y elegimos "Socios Jaqueria". Tambien se marcara la casilla de borrar despues de su copia para que no se creen dos, si no que se borre la primera y se copie la unidad organizativa "Administradores" dentro de "Socios Jaqueria"
+
+    5. Creamos todos los usuarios restantes, dando a SociosJaqueria>create a child entry>default>InetOrgPerson. Una vez ahi, se selecciona el atributo en este caso "cn" y para cada uno de socios se rellanaran las casillas "cn", "sn" con el nombre, "password" con la contraseña y "username" con el nombre de usuario para entrar
 
 **Configurar Bot de Telegram en Home Assistant**
 
@@ -130,6 +140,4 @@ Una vez hecho esto habra que hacer lo siguiente:
     1. "allow_anonymous false" para que no se permita entrar a nadie anonimo
     2. "password_file /mosquitto/config/passwd.txt" para indicar el archivo que contendra el usuario jaqueria creado anteriormente
 
-
-**Integrar LDAP como proveedor de identidades de Home Assistant**
-
+**Integrar Camaras**
