@@ -18,6 +18,7 @@ services:
       - LDAP_ROOT=${LDAP_ROOT_DOMAIN}
     networks: 
       - my-network
+    restart: unless-stopped
     volumes: 
       - 'openldap_data:/bitnami/openldap'
       
@@ -50,6 +51,7 @@ services:
       - "openldap"
     depends_on: 
       - openldap
+    restart: unless-stopped
     networks: 
       - my-network
 
@@ -59,6 +61,7 @@ services:
     ports: 
       - "1883:1883"
       - "9001:9001"
+    restart: unless-stopped
     volumes:  
       - $PWD/mconfig:/mosquitto/config/
       #- mosquitto-data:/mosquitto/data 
