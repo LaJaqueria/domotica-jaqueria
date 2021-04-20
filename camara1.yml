@@ -33,3 +33,13 @@ esp32_camera:
   resolution: 800x600
   #max_framerate: 60
   jpeg_quality: 10
+
+#Luz
+output:
+  - platform: gpio
+    pin: GPIO4
+    id: gpio_4
+light:
+  - platform: binary
+    output: gpio_4
+    name: camara1 light
