@@ -171,3 +171,5 @@ Una vez hecho esto habra que hacer lo siguiente:
 6. Por ultimo nos pedira la contraseña que configuramos en "sensorco2.yml"
 
         Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME" y saldra el dispositivo integrado con sus 2 entidades, en este caso el sensor de co2 y otra nueva entidad que mide otros parametros
+
+**Integrar camaras**
