@@ -172,7 +172,7 @@ Una vez hecho esto habra que hacer lo siguiente:
 
 **Integrar camaras**
 
- Mediante ESPHOME, configurar un ESP32(medidor de temperatura) haciendo lo siguiente:
+ Mediante ESPHOME, configurar un ESP32 cam haciendo lo siguiente:
 
 1. Instalar Python ya hecho anteriormente
 

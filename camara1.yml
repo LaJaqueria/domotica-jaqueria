@@ -1,3 +1,22 @@
+esphome:
+  name: camara1
+  platform: ESP32
+  board: nodemcu-32s
+
+wifi: 
+  ssid: "ssid"
+  password: "password"
+
+  ap:
+    ssid: "Camera"
+    password: "password"
+
+api: 
+  password: "jaqueriacamara1"
+ota:
+  password: "jaqueriacamara1"
+
+#ESP32CAM
 esp32_camera:
   name: Camara 1
   external_clock:
@@ -12,4 +31,5 @@ esp32_camera:
   pixel_clock_pin: GPIO21
   reset_pin: GPIO15
   resolution: 800x600
+  #max_framerate: 60
   jpeg_quality: 10
