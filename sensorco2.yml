@@ -37,4 +37,4 @@ sensor:
       name: "CCS811 Total Volatile Organic Compound"
     address: 0x5A
     baseline: 0xA483
-    update_interval: 60s
+    update_interval: 300s
