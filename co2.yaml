@@ -1,16 +1,16 @@
 esphome:
-  name: sensorco2
+  name: co2
   platform: ESP32
   board: esp32doit-devkit-v1
 
 wifi:
-  ssid: "ssid"
-  password: "password"
+  ssid: "LAJAQUERIA"
+  password: "<password>"
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "Co2 Fallback Hotspot"
-    password: "JvEY2Ge8QIGg"
+    password: "JGjR4RVaLsPM"
 
 captive_portal:
 
@@ -19,15 +19,14 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "jaqueriaco2"
+  password: "<password>"
 
 ota:
-  password: "jaqueriaco2"
+  password: "<password>"
 
-# Example configuration entry
 i2c:
-  sda: GPIO22
-  scl: GPIO21
+  sda: GPIO21
+  scl: GPIO22
 
 sensor:
   - platform: ccs811
@@ -36,5 +35,5 @@ sensor:
     tvoc:
       name: "CCS811 Total Volatile Organic Compound"
     address: 0x5A
-    baseline: 0xA483
-    update_interval: 300s
+    baseline: 0x99C4
+    update_interval: 60s

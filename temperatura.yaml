@@ -1,16 +1,16 @@
 esphome:
   name: temperatura
   platform: ESP32
-  board: nodemcu-32s
+  board: esp32doit-devkit-v1
 
 wifi:
-  ssid: "ssid"
-  password: "password"
+  ssid: "LAJAQUERIA"
+  password: "<password>"
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "Temperatura Fallback Hotspot"
-    password: "password"
+    password: "dYadiexkY3Rx"
 
 captive_portal:
 
@@ -19,14 +19,16 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "jaqueriatemp"
-ota: 
-  password: "jaqueriatemp"
+  password: "<password>"
+
+ota:
+  password: "<password>"
+
 sensor:
   - platform: dht
-    pin: GPIO13
+    pin: GPIO4
     temperature:
-      name: "Medidor de temperatura de la sede"
+      name: "Temperatura Sede"
     humidity:
-      name: "Medidor de humedad de la sede"
-    update_interval: 300s
+      name: "Humedad Sede"
+    update_interval: 60s
