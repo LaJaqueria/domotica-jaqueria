@@ -71,3 +71,18 @@ services:
     networks:
       - my-network
  
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt
+    volumes:
+      - /home/administrador/data:/app/data
+      - /run/udev:/run/udev:ro
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+    restart: always
+    networks:
+      - my-network
+    privileged: true
+    environment:
+      - TZ=Europe/Amsterdam
+      
