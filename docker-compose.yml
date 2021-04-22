@@ -13,13 +13,12 @@ services:
       - '1389:1389'
       - '1636:1636'
     environment: 
-      - LDAP_ADMIN_USERNAME=admin
-      - LDAP_ADMIN_PASSWORD=adminpassword
-      - LDAP_USERS=user01,user02
-      - LDAP_PASSWORDS=password1,password2
-      - LDAP_ROOT=dc=lajaqueria,dc=org
+      - LDAP_ADMIN_USERNAME=${LDAP_ADMINUSER}
+      - LDAP_ADMIN_PASSWORD=${LDAP_ADMINPASS}
+      - LDAP_ROOT=${LDAP_ROOT_DOMAIN}
     networks: 
       - my-network
+    restart: unless-stopped
     volumes: 
       - 'openldap_data:/bitnami/openldap'
       
@@ -29,9 +28,11 @@ services:
     ports: 
       - '8123:8123'
     volumes: 
-      - /home/administrador/config:/config
+      - $PWD/hconfig:/config
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
+    depends_on: 
+      - mosquitto
     networks:
       - my-network 
   phpldapadmin: 
@@ -41,8 +42,8 @@ services:
       - PHPLDAPADMIN_LDAP_HOSTS="openldap"
       - PHPLDAPADMIN_HTTPS="false"
       - LDAP_URL=ldap://openldap:1389
-      - LDAP_BASE=dc=lajaqueria,dc=org
-      - LDAP_ADMIN=cn=admin,dc=lajaqueria,dc=org
+      - LDAP_BASE=${LDAP_ROOT_DOMAIN}
+      - LDAP_ADMIN=cn=${LDAP_ADMINUSER},${LDAP_ROOT_DOMAIN}
       #ENV LDAP_CERTS: /data/ldap-server-certificate.crt
     ports: 
       - "80:80"
@@ -50,6 +51,7 @@ services:
       - "openldap"
     depends_on: 
       - openldap
+    restart: unless-stopped
     networks: 
       - my-network
 
@@ -59,8 +61,9 @@ services:
     ports: 
       - "1883:1883"
       - "9001:9001"
+    restart: unless-stopped
     volumes:  
-      - /home/administrador/mosquitto:/mosquitto/config/
+      - $PWD/mconfig:/mosquitto/config/
       #- mosquitto-data:/mosquitto/data 
       #- mosquitto-logs:/mosquitto/logs
       #- mosquitto-conf:/mosquitto/config
@@ -68,5 +71,19 @@ services:
     networks:
       - my-network
 
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt
+    volumes:
+      - /home/administrador/data:/app/data
+      - /run/udev:/run/udev:ro
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+    restart: always
+    networks:
+      - my-network
+    privileged: true
+    environment:
+      - TZ=Europe/Amsterdam
 
 
