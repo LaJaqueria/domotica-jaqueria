@@ -170,7 +170,18 @@ Una vez hecho esto habra que hacer lo siguiente:
 
         Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME" y saldra el dispositivo integrado con sus 2 entidades, en este caso el sensor de co2 y otra nueva entidad que mide otros parametros
 
-**Integrar camaras**
+**Integrar telefono en desuso como camara webIP**
+
+Se haran los siguientes pasos:
+
+1. Se instalara la aplicacion "IP webcam" para que el movil solo funcione como camara y como una direccion IP,
+2. Lo siguiente sera ir al "configuration.yaml" para incorporar la nueva camara es este caso especificando lo siguiente:
+
+    - Direccion IP del dispositivo movil
+    - Puerto, en este caso el predeterminado (8080)
+    - Usuario y contraseña que se configura en la aplicacion  "IP webcam"
+
+**Integrar ESP32CAM**
 
  Mediante ESPHOME, configurar un ESP32cam haciendo lo siguiente:
 
@@ -198,3 +209,23 @@ Una vez hecho esto habra que hacer lo siguiente:
 6. Por ultimo nos pedira la contraseña que configuramos en "sensorco2.yml"
 
         Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME" y saldra el dispositivo integrado con sus 2 entidades, en este caso el sensor de co2 y otra nueva entidad que mide otros parametros
+
+**Crear imagen para ZIgbee2MQTT**
+
+- Instale la imagen docker Zigbee2MQTT
+- En el docker-compose, lo añadi con informacion como la siguiente:
+
+    1. El nombre del dispositivo del USB conectado
+    2. La zona horaria
+    3. La ruta donde se almacenara la configuracion de Zigbee
+
+
+**Conectar Zigbee2MQTT a HomeAssistant**
+
+Lo que se trata de hacer es conectar Zigbee2MQTT a mosquitto, para que desde la regleta inalambrica se pueda mandar informacion con mosquitto a HomeAssistant
+
+Para ello vamos a la ruta de zigbee especificada en el paso anterior en este caso "/home/administrador/data" y editamos el archivo "configuration.yaml" con lo siguiente:
+
+- Especificar el servidor, en este caso ponemos el docker de mosquitto y su puerto
+- Especificar el usuario y contraseña que configuramos en mosquitto
+
