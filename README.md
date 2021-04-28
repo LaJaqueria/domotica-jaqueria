@@ -229,3 +229,14 @@ Para ello vamos a la ruta de zigbee especificada en el paso anterior en este cas
 - Especificar el servidor, en este caso ponemos el docker de mosquitto y su puerto
 - Especificar el usuario y contraseña que configuramos en mosquitto
 
+**Crear automatizaciones en el local**
+
+Regla 1º: Automatizacion del sensor  de CO2 cuando alcanza mas de 550 particulas por minuto.
+
+Dentro de HomeAssistant, iremos a Configuracion>Automatizaciones>signo + para añadir una nueva automatizacion
+
+    - Elegimos un nombre para la automatizacion.
+    - Asignamos un trigger con valor 550
+    - Configuramos una accion de tipo llamada, con un nombre y con el siguiente mensaje "las ppm han llegado a su maximo"
+
+Regla 2º: 
