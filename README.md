@@ -187,9 +187,9 @@ Se haran los siguientes pasos:
 
 1. Instalar Python ya hecho anteriormente
 
-2. Configurar parametros iniciales como nombre del dispositivo, microcontrolador usado, modelo de placa, SSID de Wifi, y la contraseña de esta, en la que mediante este comando se crea el archivo .yml llamado sensorco2
+2. Configurar parametros iniciales como nombre del dispositivo, microcontrolador usado, modelo de placa, SSID de Wifi, y la contraseña de esta, en la que mediante este comando se crea el archivo .yml llamado camara1
 
-    ```python -m esphome sensorco2.yml wizard```
+    ```python -m esphome camara1.yml wizard```
 
 3. En el archivo .yml creado, incorporar la configuracion que llevara el medidor de temperatura que sera la siguiente:
 
@@ -198,15 +198,17 @@ Se haran los siguientes pasos:
     - Contraseña de la API de HomeAssistant
     - PIN de la placa donde se conecta el sensor
     - Nombre que tendra el sensor de CO2
-    - Intervalo de segundos donde la informacion del sensor se ira actualizando
+    - Resolucion de la camara
+    - Calidad jpeg de las fotos
+    - Todos los pins que se conectan al microprocesador
 
 4. Una vez configurado, ejecutamos el siguiente comando para que funcione el sensor
 
-    ```python -m esphome sensorco2.yml run```
+    ```python -m esphome camara1.yml run```
 
 5. Lo siguiente que hara sera pedirnos el puerto donde esta conectado el sensor, asi que ponemos el que corresponda a "COM3"
 
-6. Por ultimo nos pedira la contraseña que configuramos en "sensorco2.yml"
+6. Por ultimo nos pedira la contraseña que configuramos en "camara1.yml"
 
         Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME" y saldra el dispositivo integrado con sus 2 entidades, en este caso el sensor de co2 y otra nueva entidad que mide otros parametros
 
@@ -231,12 +233,43 @@ Para ello vamos a la ruta de zigbee especificada en el paso anterior en este cas
 
 **Crear automatizaciones en el local**
 
-Regla 1º: Automatizacion del sensor  de CO2 cuando alcanza mas de 550 particulas por minuto.
+Regla 1º: Automatizacion del sensor de CO2 cuando alcanza mas de 620 particulas por minuto.
 
 Dentro de HomeAssistant, iremos a Configuracion>Automatizaciones>signo + para añadir una nueva automatizacion
 
-    - Elegimos un nombre para la automatizacion.
-    - Asignamos un trigger con valor 550
-    - Configuramos una accion de tipo llamada, con un nombre y con el siguiente mensaje "las ppm han llegado a su maximo"
+- Elegimos un nombre para la automatizacion.
+- Asignamos un desencadenante de tipo dispositivo con valor maximo 620
+- Configuramos una accion de tipo llamada, con un nombre y con el siguiente mensaje "las ppm han llegado a su maximo"
 
-Regla 2º: 
+Regla 2º: A partir de las 21:00, se encienda la luz del sensor de la camara.
+
+Dentro de HomeAssistant, iremos a Configuracion>Automatizaciones>signo + para añadir una nueva automatizacion
+
+- Elegimos un nombre para la automatizacion
+- Asignamos un desencadenante de tipo hora con el valor de las 21:00 horas
+- Configuramos una accion de tipo llamada, con el servicio "Interruptor: turn on" y elegimos la entidad, en este caso la camara
+
+Regla 3º: A partir de las 7:00, se apagara la luz del sensor de la camara.
+ 
+Dentro de HomeAssistant, iremos a Configuracion>Automatizaciones>signo + para añadir una nueva automatizacion
+
+- Elegimos un nombre para la automatizacion
+- Asignamos un desencadenantes de tipo hora con el valor de las 7:00 horas
+- Configuramos una accion de tipo llamada, con el servicio "Interruptor: turn off" y elegimos la entidad, en este caso la camara
+
+Regla 4º: Cuando llegue la temperatura a mas de 25 grados, se debera encender el enchufe numero 2 de la regleta zigbee
+
+Dentro de HomeAssistant, iremos a Configuracion>Automatizaciones>signo + para añadir una nueva automatizacion
+
+- Elegimos un nombre para la automatizacion
+- Asignamos un desencadenantes de tipo dispositivo con el valor maximo de 25
+- Configuramos una accion de tipo llamada, con el servicio "Interruptor: turn on" y elegimos la entidad, en este caso el enchufe numero 2 de la regleta
+
+
+Regla 5ª Cuando la temperatura baje de 22 grados, se debera apagar el enchufe numero 2 de la regleta zigbee
+
+Dentro de HomeAssistant, iremos a Configuracion>Automatizaciones>signo + para añadir una nueva automatizacion
+
+- Elegimos un nombre para la automatizacion
+- Asignamos un desencadenantes de tipo dispositivo con el valor minimo de 22
+- Configuramos una accion de tipo llamada, con el servicio "Interruptor: turn off" y elegimos la entidad, en este caso el enchufe numero 2 de la regleta
