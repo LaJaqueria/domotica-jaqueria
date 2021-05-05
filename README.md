@@ -273,3 +273,35 @@ Dentro de HomeAssistant, iremos a Configuracion>Automatizaciones>signo + para a�
 - Elegimos un nombre para la automatizacion
 - Asignamos un desencadenantes de tipo dispositivo con el valor minimo de 22
 - Configuramos una accion de tipo llamada, con el servicio "Interruptor: turn off" y elegimos la entidad, en este caso el enchufe numero 2 de la regleta
+
+**Acceso por NFC**
+
+Mediante ESPHOME, configurar un lector NFC haciendo lo siguiente:
+
+1. Instalar Python ya hecho anteriormente
+
+2. Configurar parametros iniciales como nombre del dispositivo, microcontrolador usado, modelo de placa, SSID de Wifi, y la contraseña de esta, en la que mediante este comando se crea el archivo .yml llamado camara1
+
+    ```python -m esphome lectornfc.yml wizard```
+
+3. En el archivo .yml creado, incorporar la configuracion que llevara el medidor de temperatura que sera la siguiente:
+
+    - SSID del Wifi
+    - Contraseña del Wifi
+    - Contraseña de la API de HomeAssistant
+    - PIN de la placa donde se conecta el sensor
+    - Nombre que tendra el sensor de CO2
+    - Resolucion de la camara
+    - Calidad jpeg de las fotos
+    - Todos los pins que se conectan al microprocesador
+
+4. Una vez configurado, ejecutamos el siguiente comando para que funcione el sensor
+
+    ```python -m esphome camara1.yml run```
+
+5. Lo siguiente que hara sera pedirnos el puerto donde esta conectado el sensor, asi que ponemos el que corresponda a "COM3"
+
+6. Por ultimo nos pedira la contraseña que configuramos en "camara1.yml"
+
+        Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME" y saldra el dispositivo integrado con sus 2 entidades, en este caso el sensor de co2 y otra nueva entidad que mide otros parametros
+
