@@ -289,10 +289,8 @@ Mediante ESPHOME, configurar un lector NFC haciendo lo siguiente:
     - SSID del Wifi
     - Contraseña del Wifi
     - Contraseña de la API de HomeAssistant
-    - PIN de la placa donde se conecta el sensor
-    - Nombre que tendra el sensor RFID
-    - Plataforma del sensor
-    - UID del sensor
+    - Pin CLK
+    - Pin 
 
 4. Una vez configurado, ejecutamos el siguiente comando para que funcione el sensor
 
@@ -302,5 +300,5 @@ Mediante ESPHOME, configurar un lector NFC haciendo lo siguiente:
 
 6. Por ultimo nos pedira la contraseña que configuramos en "camara1.yml"
 
-        Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME" y saldra el dispositivo integrado con sus 2 entidades, en este caso el sensor de co2 y otra nueva entidad que mide otros parametros
+        Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME" y saldra el dispositivo integrado con su entidaded, en este caso el sensor RFID
 

@@ -25,11 +25,9 @@ ota:
   password: "<password>"
 
 spi:
+  clk_pin: GPIO18
+  mosi_pin: GPIO23
+  miso_pin: GPIO19
 
 rc522_spi:
-  cs_pin: GPIO15
-
-binary_sensor:
-  - platform: rc522
-    uid: 74-10-37-94
-    name: "Sensor RFID"
+  cso_pin: GPIO15
