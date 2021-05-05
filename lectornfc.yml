@@ -27,7 +27,7 @@ ota:
 spi:
 
 rc522_spi:
-  cs_pin: GPI015
+  cs_pin: GPIO15
 
 binary_sensor:
   - platform: rc522
