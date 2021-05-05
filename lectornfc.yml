@@ -1,0 +1,35 @@
+esphome:
+  name: lectornfc
+  platform: ESP32
+  board: esp32doit-devkit-v1
+
+wifi:
+  ssid: "LAJAQUERIA"
+  password: "password"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Lectornfc Fallback Hotspot"
+    password: "HlobYi8l2xIN"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "<password>"
+
+ota:
+  password: "<password>"
+
+spi:
+
+rc522_spi:
+  cs_pin: GPI015
+
+binary_sensor:
+  - platform: rc522
+    uid: 74-10-37-94
+    name: "Sensor RFID"

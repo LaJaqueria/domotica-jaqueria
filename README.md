@@ -290,14 +290,13 @@ Mediante ESPHOME, configurar un lector NFC haciendo lo siguiente:
     - Contraseña del Wifi
     - Contraseña de la API de HomeAssistant
     - PIN de la placa donde se conecta el sensor
-    - Nombre que tendra el sensor de CO2
-    - Resolucion de la camara
-    - Calidad jpeg de las fotos
-    - Todos los pins que se conectan al microprocesador
+    - Nombre que tendra el sensor RFID
+    - Plataforma del sensor
+    - UID del sensor
 
 4. Una vez configurado, ejecutamos el siguiente comando para que funcione el sensor
 
-    ```python -m esphome camara1.yml run```
+    ```python -m esphome lectornfc.yml run```
 
 5. Lo siguiente que hara sera pedirnos el puerto donde esta conectado el sensor, asi que ponemos el que corresponda a "COM3"
 
