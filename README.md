@@ -84,7 +84,7 @@ Para ello, recurri a BotFather haciendo lo siguiente:
 
 6. Por ultimo nos pedira la contraseña que configuramos en "temperatura.yml"
 
-        Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME" y saldra el dispositivo integrado con sus 2 entidades, en este caso temperatura y humedad.
+        Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME", ponemos la IP del dispositivo y saldra el dispositivo integrado con sus 2 entidades, en este caso temperatura y humedad.
 
 
 **Configurar grupos y usuarios LDAP**
@@ -168,7 +168,7 @@ Una vez hecho esto habra que hacer lo siguiente:
 
 6. Por ultimo nos pedira la contraseña que configuramos en "sensorco2.yml"
 
-        Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME" y saldra el dispositivo integrado con sus 2 entidades, en este caso el sensor de co2 y otra nueva entidad que mide otros parametros
+        Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME", ponemos la IP del dispositivo y saldra el dispositivo integrado con sus 2 entidades, en este caso el sensor de co2 y otra nueva entidad que mide otros parametros
 
 **Integrar telefono en desuso como camara webIP**
 
@@ -210,7 +210,7 @@ Se haran los siguientes pasos:
 
 6. Por ultimo nos pedira la contraseña que configuramos en "camara1.yml"
 
-        Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME" y saldra el dispositivo integrado con sus 2 entidades, en este caso el sensor de co2 y otra nueva entidad que mide otros parametros
+        Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME", ponemos la IP del dispositivo y saldra el dispositivo integrado con sus 2 entidades, en este caso el sensor de co2 y otra nueva entidad que mide otros parametros
 
 **Crear imagen para ZIgbee2MQTT**
 
@@ -300,7 +300,7 @@ Mediante ESPHOME, configurar un lector NFC haciendo lo siguiente:
 
 5. Lo siguiente que hara sera pedirnos el puerto donde esta conectado el sensor, asi que ponemos el que corresponda a "COM3"
 
-6. Por ultimo nos pedira la contraseña que configuramos en "camara1.yml"
+6. Por ultimo nos pedira la contraseña que configuramos en "lectornfc.yml"
 
-        Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME" y saldra el dispositivo integrado con su entidaded, en este caso el sensor RFID
+        Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME", ponemos la IP del dispositivo y saldra el dispositivo integrado con su entidad, en este caso el sensor RFID
 
