@@ -289,8 +289,10 @@ Mediante ESPHOME, configurar un lector NFC haciendo lo siguiente:
     - SSID del Wifi
     - Contraseña del Wifi
     - Contraseña de la API de HomeAssistant
+    - Pin CSO
     - Pin CLK
-    - Pin 
+    - Pin MOSI
+    - Pin MISO
 
 4. Una vez configurado, ejecutamos el siguiente comando para que funcione el sensor
 
