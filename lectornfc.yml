@@ -30,4 +30,4 @@ spi:
   miso_pin: GPIO19
 
 rc522_spi:
-  cso_pin: GPIO15
+  cs_pin: GPIO15

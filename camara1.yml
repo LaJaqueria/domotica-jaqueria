@@ -4,17 +4,17 @@ esphome:
   board: nodemcu-32s
 
 wifi: 
-  ssid: "ssid"
-  password: "password"
+  ssid: "LAJAQUERIA"
+  password: "aUYJ63QE"
 
   ap:
     ssid: "Camera"
     password: "password"
 
 api: 
-  password: "jaqueriacamara1"
+  password: "jaqueriatemp"
 ota:
-  password: "jaqueriacamara1"
+  password: "jaqueriatemp"
 
 #ESP32CAM
 esp32_camera:
