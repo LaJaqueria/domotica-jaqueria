@@ -3,3 +3,5 @@ hconfig
 .env
 .esphome/
 temperatura/
+camara1/
+lectornfc/
