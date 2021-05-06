@@ -46,7 +46,7 @@ services:
       - LDAP_ADMIN=cn=${LDAP_ADMINUSER},${LDAP_ROOT_DOMAIN}
       #ENV LDAP_CERTS: /data/ldap-server-certificate.crt
     ports: 
-      - "80:80"
+      - "8067:80"
     links:
       - "openldap"
     depends_on: 
