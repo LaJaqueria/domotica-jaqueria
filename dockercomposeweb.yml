@@ -4,11 +4,13 @@ networks:
     driver: bridge
 services:
   db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    image: mysql:8.0.24
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: ${PASSWORDMYSQL}
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_USER: ${MYSQLUSER}
+      MYSQL_PASSWORD: ${PASSWORDMYSQL}
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
     networks:
       - wordpress
       
@@ -21,9 +23,9 @@ services:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: ${USERWORD}
       WORDPRESS_DB_PASSWORD: ${PASSWORDWORD}
-      WORDPRESS_DB_NAME: test
+      WORDPRESS_DB_NAME: ${DATABASE_NAME}
     volumes:
-      - ${PWD}wordpress:/var/www/htm
+      - $PWD/wordpress:/var/www/html
     networks:
       - wordpress
     depends_on: 
