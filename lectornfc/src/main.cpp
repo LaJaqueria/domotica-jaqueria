@@ -62,7 +62,7 @@ void setup() {
   //   fast_connect: false
   //   networks:
   //   - ssid: LAJAQUERIA
-  //     password: password
+  //     password: aUYJ63QE
   //     id: wifi_wifiap_2
   //     priority: 0.0
   //   use_address: lectornfc.local
@@ -70,7 +70,7 @@ void setup() {
   wifi_wificomponent->set_use_address("lectornfc.local");
   wifi::WiFiAP wifi_wifiap_2 = wifi::WiFiAP();
   wifi_wifiap_2.set_ssid("LAJAQUERIA");
-  wifi_wifiap_2.set_password("password");
+  wifi_wifiap_2.set_password("aUYJ63QE");
   wifi_wifiap_2.set_priority(0.0f);
   wifi_wificomponent->add_sta(wifi_wifiap_2);
   wifi::WiFiAP wifi_wifiap = wifi::WiFiAP();
@@ -83,7 +83,7 @@ void setup() {
   wifi_wificomponent->set_fast_connect(false);
   App.register_component(wifi_wificomponent);
   // ota:
-  //   password: <password>
+  //   password: jaqueriatemp
   //   id: ota_otacomponent
   //   safe_mode: true
   //   port: 3232
@@ -91,18 +91,18 @@ void setup() {
   //   num_attempts: 10
   ota_otacomponent = new ota::OTAComponent();
   ota_otacomponent->set_port(3232);
-  ota_otacomponent->set_auth_password("<password>");
+  ota_otacomponent->set_auth_password("jaqueriatemp");
   App.register_component(ota_otacomponent);
   if (ota_otacomponent->should_enter_safe_mode(10, 300000)) return;
   // api:
-  //   password: <password>
+  //   password: jaqueriatemp
   //   id: api_apiserver
   //   port: 6053
   //   reboot_timeout: 15min
   api_apiserver = new api::APIServer();
   App.register_component(api_apiserver);
   api_apiserver->set_port(6053);
-  api_apiserver->set_password("<password>");
+  api_apiserver->set_password("jaqueriatemp");
   api_apiserver->set_reboot_timeout(900000);
   // spi:
   //   clk_pin:

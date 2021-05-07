@@ -19,10 +19,10 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "<password>"
+  password: "password"
 
 ota:
-  password: "<password>"
+  password: "password"
 
 spi:
   clk_pin: GPIO18
