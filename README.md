@@ -304,3 +304,21 @@ Mediante ESPHOME, configurar un lector NFC haciendo lo siguiente:
 
         Una vez hecho todo esto, en el HomeAssistant habra que ir al apartado de configuracion, integraciones y agregar una nueva integracion. Buscamos "ESPHOME", ponemos la IP del dispositivo y saldra el dispositivo integrado con su entidad, en este caso el sensor RFID
 
+**Instalar Docker-compose para web**
+
+Se creara un docker-compose con servicio MySQL y un servicio Wordpress.
+
+- El servicio MySQL llevara lo siguiente:
+
+    - Contraseña del usuario administrador
+    - La red a la que pertenece
+
+- El servicio WordPress llevara lo siguiente:
+
+    - Puerto asociado
+    - Host de la base de datos
+    - Usuario de la base de datos (administrador)
+    - Contraseña del usuario de la base de datos (administrador)
+    - Nombre de la base de datos
+    - Ruta en la maquina donde se almacenara
+    - Indicar que depende de MySQL

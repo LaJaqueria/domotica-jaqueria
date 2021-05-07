@@ -1,0 +1,30 @@
+version: '3'
+networks: 
+  wordpress: 
+    driver: bridge
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${PASSWORDMYSQL}
+    networks:
+      - wordpress
+      
+  wordpress:
+    image: wordpress
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: ${USERWORD}
+      WORDPRESS_DB_PASSWORD: ${PASSWORDWORD}
+      WORDPRESS_DB_NAME: test
+    volumes:
+      - ${PWD}wordpress:/var/www/htm
+    networks:
+      - wordpress
+    depends_on: 
+      - db
