@@ -310,15 +310,17 @@ Se creara un docker-compose con servicio MySQL y un servicio Wordpress.
 
 - El servicio MySQL llevara lo siguiente:
 
-    - Contraseña del usuario administrador
+    - Nombre de la base de datos
+    - Nombre del usuario de la base de datos
+    - Contraseña del usuario
     - La red a la que pertenece
 
 - El servicio WordPress llevara lo siguiente:
 
     - Puerto asociado
     - Host de la base de datos
-    - Usuario de la base de datos (administrador)
-    - Contraseña del usuario de la base de datos (administrador)
+    - Usuario de la base de datos
+    - Contraseña del usuario de la base de datos 
     - Nombre de la base de datos
     - Ruta en la maquina donde se almacenara
     - Indicar que depende de MySQL
