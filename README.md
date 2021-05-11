@@ -324,3 +324,11 @@ Se creara un docker-compose con servicio MySQL y un servicio Wordpress.
     - Nombre de la base de datos
     - Ruta en la maquina donde se almacenara
     - Indicar que depende de MySQL
+
+Despues  de ello, configuraremos la instalacion de Wordpress haciendo lo siguiente:
+
+- Idioma Español
+- Titulo del sitio
+- Nombre de usuario
+- Contraseña
+- Correo electronico
