@@ -274,6 +274,15 @@ Dentro de HomeAssistant, iremos a Configuracion>Automatizaciones>signo + para a�
 - Asignamos un desencadenantes de tipo dispositivo con el valor minimo de 22
 - Configuramos una accion de tipo llamada, con el servicio "Interruptor: turn off" y elegimos la entidad, en este caso el enchufe numero 2 de la regleta
 
+Regla 6º: Automatizacion del sensor de CO2 cuando baje de 900ppm
+
+Dentro de HomeAssistant, iremos a Configuracion>Automatizaciones>signo + para añadir una nueva automatizacion
+
+- Elegimos un nombre para la automatizacion.
+- Asignamos un desencadenante de tipo dispositivo con valor minimo de 900
+- Configuramos una accion de tipo llamada, con un nombre y con el siguiente mensaje "Se ha bajado del maximo valor de CO2"
+
+
 **Acceso por NFC**
 
 Mediante ESPHOME, configurar un lector NFC haciendo lo siguiente:
