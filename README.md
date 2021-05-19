@@ -341,3 +341,7 @@ Despues  de ello, configuraremos la instalacion de Wordpress haciendo lo siguien
 - Nombre de usuario
 - Contraseña
 - Correo electronico
+
+**Desactivar acceso anonimo a ldap**
+
+Para ello, entraremos al contenedor de "openldap", con - ```docker exec -it openldap bash``` -  yendo a la ruta "" Una vez ahi se añade la siguiente linea "disallow bind_anon" 
